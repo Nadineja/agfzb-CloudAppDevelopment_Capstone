@@ -13,10 +13,14 @@
 
 </head>
 
-    <body>
-    <!-- Remove this line the first time you edit this file -->
-     This is the index page of your Django app!
+<body>
     <!--Add a nav bar here -->
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                  <a class="navbar-brand" href="{% url 'djangoapp:index' %}">Home</a>
+                  <a class="navbar-brand" href="{% url 'djangoapp:about' %}">About Us</a>
+            </div>
 
     <!--Add a dealer table here -->
 
