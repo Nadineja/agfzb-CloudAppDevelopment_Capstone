@@ -1,3 +1,7 @@
+
+# Register models here
+
+
 from django.db import models
 import sys
 from django.conf import settings
@@ -25,9 +29,10 @@ import json
 # - __str__ method to print a car make object
 
 class CarMake(models.Model):
+
     name = models.CharField(null=False, max_length=100, default='New Model')
     description = models.CharField(max_length=1000)
-    establish_date = models.DateField(null=True)
+    date = models.DateField(null=True)
 
 
 def __str__(self) -> str:
@@ -37,17 +42,20 @@ def __str__(self) -> str:
 # <HINT> Create a Car Model model `class CarModel(models.Model):`:
 
 class CarModel(models.Model):
-    carMakeId = models.ForeignKey(CarMake, on_delete=models.CASCADE)
-    carMakeName = models.CharField(null=False, max_length=30, default='Make')
+    carMakeId = models.ForeignKey(CarMake, null=False, on_delete=models.CASCADE)
+    make = models.CharField(null=False, max_length=30, default='Make')
+    id = models.IntegerField(default=1, primary_key=True)
     dealership = models.IntegerField(null=False, default=-1)
     name = models.CharField(null=False, max_length=30, default='New Car Model')
     SEDAN = 'sedan'
     SUV = "suv"
     WAGON = "wagon"
+    EV = "ev"
     MODEL_CHOICES = [
         (SEDAN, "sedan"),
         (SUV, "suv"),
-        (WAGON, "wagon")
+        (WAGON, "wagon"),
+        (EV, "ev")
     ]
     model = models.CharField(
         null=False,
@@ -61,18 +69,17 @@ class CarModel(models.Model):
         YEAR_CHOICES.append((r, r))
 
     year = models.IntegerField(
-        ('year'), choices=YEAR_CHOICES, default=datetime.datetime.now().year)
+        'year', choices=YEAR_CHOICES, default=datetime.datetime.now().year)
 
     def __str__(self):
         return "Name: " + str(self.name) + "," + \
-                "Car Type: " + str(self.model) + "," + str(self.year)
+               "Car Type: " + str(self.model) + "," + str(self.year)
 '''
-class CarModel(models.Model):
+class CarModel(models.Model):,
     mdid = models.SmallIntegerField(primary_key=True, default=1)
     car_make = models.ForeignKey(CarMake, on_delete=models.CASCADE, default=1)
     name = models.CharField(null=False, max_length=25)
     dealership = models.IntegerField(null=False, default=0) # dealer id is "dealership" in the db.
-
     # define choices for car type
     SEDAN = 'sedan'
     SUV = 'suv'
@@ -106,7 +113,6 @@ class CarModel(models.Model):
         default = COUPE
     )
     car_year = models.DateField() #DateTime obj and not a string..
-
     def __str__(self) -> str:
         return self.name + ": " + str(self.car_year.year) + " - " + self.car_type
 '''

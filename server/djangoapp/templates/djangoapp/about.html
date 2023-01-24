@@ -13,6 +13,9 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.20.2/bootstrap-table.min.js"></script>
         <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.20.2/extensions/filter-control/bootstrap-table-filter-control.min.css" rel="stylesheet" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.20.2/extensions/filter-control/bootstrap-table-filter-control.min.js"></script>
+        <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     </head>
     <style>
         body{
@@ -23,8 +26,10 @@
         .container{
         background-color:#D7CCC8;
         font:monospace;
+        padding: 20px;
         font-size:35px;
-        border:4px
+        border:4px solid #000000;
+        border-radius: 25px;
         }
         .heading{
         border:4px;
@@ -44,11 +49,19 @@
        <br><br><br>
        <div class="container">
             <h1 class="heading">About Us</h1>
-       <div class="container">
-           <p>Welcome to Best Cars dealership, home to the best cars in North America. We sell domestic and imported cars at reasonable prices.
-           </p>
+            <br>
+                <p>Welcome to Best Cars dealership, home to the best cars in<br><br> North America.
+                    We sell domestic and imported cars at <br><br>reasonable prices.
+                </p>
        </div>
-      </body>
+
+           <br><br><br>
+       <div class="container1-mt-3">
+          <img src="{{MEDIA_URL}}/emoji/Cars.png" width="1000px" height="400px" class="rounded mx-auto d-block"
+               alt="We have what you need">
+
+       </div>
+    </body>
 
 
 </html>
