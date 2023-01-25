@@ -72,8 +72,9 @@ class CarModel(models.Model):
         'year', choices=YEAR_CHOICES, default=datetime.datetime.now().year)
 
     def __str__(self):
-        return "Name: " + str(self.name) + "," + \
-               "Car Type: " + str(self.model) + "," + str(self.year)
+        return f"{self.name}, {self.year}, {self.make}"
+#        return "Name: " + str(self.name) + "," + \
+#               "Car Type: " + str(self.model) + "," + str(self.year)
 '''
 class CarModel(models.Model):,
     mdid = models.SmallIntegerField(primary_key=True, default=1)

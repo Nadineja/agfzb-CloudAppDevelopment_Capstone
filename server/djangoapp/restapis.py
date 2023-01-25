@@ -268,6 +268,7 @@ def get_dealer_reviews_from_cf(url, **kwargs):
 
 
 # Create an `analyze_review_sentiments` method to call Watson NLU and analyze text
+
 def analyze_review_sentiments(review):
     url = "https://api.us-east.natural-language-understanding.watson.cloud.ibm.com/instances/fa5b4f08-3331-42db-9b16-d8bea709fcc4"
     api_key = "1A-pbDCxIORohTIYyZeg4b7bddHET7RWk8kW8fBzYG79"
@@ -277,11 +278,23 @@ def analyze_review_sentiments(review):
     nlp_server.set_service_url(url)
     features = ["sentiment"]
     version = "2021-08-01"
+    language = "en"
+    response = nlp_server.analyze(text=review, features=Features(
+        sentiment=SentimentOptions(targets=[review])), language="en").get_result()
+    sentiment = response['sentiment']['document']['label']
+    return sentiment
+
+
+
+'''
+    features = ["sentiment"]
+    version = "2021-08-01"
+    language = "en"
     response = nlp_server.analyze(text=review, features=Features(
         sentiment=SentimentOptions(targets=[review]))).get_result()
     sentiment = response['sentiment']['document']['label']
     return sentiment
-
+'''
 # def analyze_review_sentiments(text):
 # - Call get_request() with specified arguments
 # - Get the returned sentiment label such as Positive or Negative

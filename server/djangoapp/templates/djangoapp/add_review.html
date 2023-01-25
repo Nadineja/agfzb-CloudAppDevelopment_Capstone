@@ -41,16 +41,16 @@
                     <input type="text" class="form-control mb-3" placeholder="Your name" name="name" id="name"
                         value="{{user.first_name}}" />
 
-                    <label class="h6" for="review_text">Enter the review content:</label>
-                    <textarea class="form-control mb-3" placeholder="Your review" name="review_text"
-                        id="review_text"></textarea>
+                    <label class="h6" for="review">Enter the review content:</label>
+                    <textarea class="form-control mb-3" placeholder="Your review" name="review"
+                        id="review"></textarea>
 
                     <hr class="mb-3" />
 
                     <label for="car" class="h6">Select your car (model-make-year):</label>
                     <select name="car" id="car" class="form-select form-control mb-3" required>
                         {% for car in cars %}
-                        <option selected value={{car.id}}>{{car.name}}-{{car.make.name}}-{{ car.year|date:"Y" }}</option>
+                        <option selected value={{car.id}}>{{car.name}}-{{car.make}}-{{ car.year }}</option>
 
                         {% endfor %}
                     </select>
